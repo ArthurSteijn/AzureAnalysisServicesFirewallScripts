@@ -1,0 +1,14 @@
+trigger:
+- none
+
+pool: 'Hosted Windows 2019 with VS2019'
+
+steps:
+- task: AzurePowerShell@5
+  inputs:
+    azureSubscription: 'YourAzureSubscriptionOrServiceConnection'
+    ScriptType: 'FilePath'
+    ScriptPath: 'AddDevOpsIpToAAS.ps1'
+    ScriptArguments: '-ResourceName "YourAnalysisServicesName" -ResourceGroup "YourResourceGroupName"'
+    azurePowerShellVersion: 'LatestVersion'
+
